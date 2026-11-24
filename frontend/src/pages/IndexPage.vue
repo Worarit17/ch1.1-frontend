@@ -1,4 +1,5 @@
 <template>
+<<<<<<< Updated upstream
   <q-page padding>
     <div class="text-h4 q-mb-md">
       Version Control + Docker Demo (Quasar)
@@ -78,5 +79,88 @@ const dockerItems = [
     title: 'Network',
     detail: 'ให้บริการใน Docker ติดต่อกันได้ เช่น Nginx ส่งต่อคำขอไปยัง Express',
   },
+=======
+  <<q-card class="q-mt-md">
+  <q-card-section class="bg-primary text-white">
+    <div class="text-h6">
+      <q-icon name="terminal" class="q-mr-sm" />
+      Docker Quick Reference
+    </div>
+    <div class="text-caption">
+      คำสั่งพื้นฐาน Docker และ Docker Compose
+    </div>
+  </q-card-section>
+
+  <q-card-section>
+    <div class="row q-col-gutter-md">
+      <div
+        v-for="item in dockerCommands"
+        :key="item.command"
+        class="col-12 col-sm-6"
+      >
+        <q-card bordered flat class="full-height">
+          <q-card-section>
+            <div class="text-subtitle1 text-weight-bold">
+              {{ item.title }}
+            </div>
+
+            <q-badge color="blue" class="q-mb-sm">
+              {{ item.type }}
+            </q-badge>
+
+            <div class="bg-grey-10 text-white q-pa-sm rounded-borders">
+              <code>{{ item.command }}</code>
+            </div>
+
+            <div class="text-body2 q-mt-sm">
+              {{ item.description }}
+            </div>
+          </q-card-section>
+        </q-card>
+      </div>
+    </div>
+  </q-card-section>
+</q-card>
+</template>
+
+<script setup>
+const dockerCommands = [
+  {
+    title: 'แสดง Container',
+    type: 'Docker',
+    command: 'docker ps',
+    description: 'ใช้แสดงรายการ Container ที่กำลังทำงานอยู่'
+  },
+  {
+    title: 'แสดง Images',
+    type: 'Docker',
+    command: 'docker images',
+    description: 'ใช้ตรวจสอบ Images ที่ดาวน์โหลดหรือสร้างไว้ในเครื่อง'
+  },
+  {
+    title: 'ดู Logs',
+    type: 'Docker',
+    command: 'docker logs <container>',
+    description: 'ใช้ตรวจสอบ Log เพื่อค้นหาข้อผิดพลาดของ Container'
+  },
+  {
+    title: 'เริ่มต้น Services',
+    type: 'Docker Compose',
+    command: 'docker compose up -d',
+    description: 'ใช้เริ่มต้น Services ทั้งหมดใน Background'
+  },
+  {
+    title: 'ตรวจสอบ Services',
+    type: 'Docker Compose',
+    command: 'docker compose ps',
+    description: 'ใช้ตรวจสอบสถานะ Services ที่กำหนดไว้ใน Compose'
+  },
+  {
+    title: 'ดู Compose Logs',
+    type: 'Docker Compose',
+    command: 'docker compose logs',
+    description: 'ใช้ดู Log ของ Services ทั้งหมดใน Docker Compose'
+  }
+>>>>>>> Stashed changes
 ]
 </script>
